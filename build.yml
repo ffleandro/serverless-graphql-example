@@ -1,0 +1,13 @@
+options:
+  concurrency: 0 # Use all CPUs
+  ignores:
+      - aws-sdk # included on Lambda.
+
+packages:
+  graphql-api:
+    cwd: build
+    output: ../dist/serverless-graphql-example-api.zip
+    trace:
+      - index.js
+    include:
+      - ../package.json

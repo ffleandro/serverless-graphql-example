@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "91bd196d-9d95-4547-8208-2ca7b19bc0e2",
+    "name": "Serverless GraphQL Example API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id: ID!) {\n  user: GetUserById(id: $id) {\n    id name dob address description imageUrl createdAt updatedAt\n  }\n}",
+            "variables": "{\n    \"id\": \"665d2f55-b401-4a37-a90d-91c61b71c356\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LIST User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($cursor: String, $limit: Int, $filter: String) {\n    list: ListUsers(cursor: $cursor, limit: $limit, filter: $filter) {\n        cursor\n        users { id name address description imageUrl }\n    }\n}",
+            "variables": "{\n    \"limit\": 20,\n    \"filter\": \"El\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($input: CreateUserInput!) {\n  user: CreateUser(input: $input) {\n      id name dob address description imageUrl createdAt updatedAt\n  }\n}",
+            "variables": "{\n    \"input\": {\n        \"name\": \"Filipe Arrodeio\",\n        \"dob\": \"1987-07-06\",\n        \"address\": \"Av. Paraiba 134, Joao Pessoa - PB\"\n    }\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UPDATE User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($input: UpdateUserInput!) {\n  user: UpdateUser(input: $input) {\n      id name dob address description imageUrl createdAt updatedAt\n  }\n}",
+            "variables": "{\n    \"input\": {\n        \"id\": \"fdfa3ad5-d57d-4bfe-ac70-bbfa05ceaf71\",\n        \"description\": \"Hi, my name is Filipe!\"\n    }\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id: ID!) {\n  id: DeleteUser(id: $id)\n}",
+            "variables": "{\n    \"id\": \"fdfa3ad5-d57d-4bfe-ac70-bbfa05ceaf71\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Coords",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($address: String!) {\n  coords: GetCoordsByAddress(address: $address) {\n      lat, lon\n  }\n}",
+            "variables": "{\n    \"address\": \"Seattle, WA\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{url}}",
+          "host": ["{{url}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

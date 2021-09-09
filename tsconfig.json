@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "es6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "preserveConstEnums": true,
+    "rootDir": ".",
+    "target": "es6",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "allowJs": true,
+    "strictPropertyInitialization": false,
+    "types": ["jest", "node"],
+  },
+  "exclude": ["node_modules"],
+  "include": ["index.ts", "src/**/*.ts"]
+}
+  
